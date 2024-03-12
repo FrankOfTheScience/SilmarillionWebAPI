@@ -1,0 +1,53 @@
+version: '3.4'
+
+networks:
+  backend:
+
+services:
+  characterdb:
+    container_name: character-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=DemoPassword@1234
+    networks:
+      - backend
+    ports:
+      - 8001:1433
+  characterservice:
+    container_name: character-api
+    image: ${DOCKER_REGISTRY-}characterservice
+    build:
+      context: .
+      dockerfile: CharacterService/Dockerfile
+    networks:
+      - backend
+    ports:
+      - 8002:80 
+    environment:
+      - DB_HOST=character-db
+      - DB_NAME=character
+      - DB_USER=sa
+      - DB_PASSWORD=DemoPassword@1234
+  mapDb:
+    container_name: map-db
+    image: mongo
+    networks:
+      - backend
+    ports:
+      - 18005:27017
+  mapservice:
+    container_name: map-api
+    image: ${DOCKER_REGISTRY-}mapservice
+    build:
+      context: .
+      dockerfile: MapService/Dockerfile
+    networks:
+      - backend
+    ports:
+      - 18006:80
+    environment:
+      - DB_HOST=map-db
+      - DB_NAME=silmarillionMap
+    
+
