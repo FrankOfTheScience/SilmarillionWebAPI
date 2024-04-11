@@ -1,5 +1,6 @@
 using MapService.Models;
 using MapService.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using System.Net;
@@ -21,6 +22,7 @@ namespace MapService.Controllers
 
         // GET List
         [HttpGet("pointOfInterest")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<PointOfInterestNode>>> GetPointOfInterestNodeListAsync()
         {
             try
@@ -35,6 +37,7 @@ namespace MapService.Controllers
         }
 
         [HttpGet("pathToNode")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<PathToNode>>> GetPathListAsync()
         {
             try
@@ -50,6 +53,7 @@ namespace MapService.Controllers
 
         // GET by Id
         [HttpGet("pointOfInterest/{id}")]
+        [Authorize]
         public async Task<ActionResult<PointOfInterestNode>> GetPointOfInterestByIdAsync(string id)
         {
             try
@@ -64,6 +68,7 @@ namespace MapService.Controllers
         }
 
         [HttpGet("pathToNode/{id}")]
+        [Authorize]
         public async Task<ActionResult<PathToNode>> GetPathByIdAsync(string id)
         {
             try
@@ -79,6 +84,7 @@ namespace MapService.Controllers
 
         // POST
         [HttpPost("pointOfInterest")]
+        [Authorize(Roles = ("Administrator,User"))]
         public async Task<ActionResult<HttpStatusCode>> PostPointOfInterestAsync(PointOfInterestNode newPointOfInterest)
         {
             try
@@ -97,6 +103,7 @@ namespace MapService.Controllers
         }
 
         [HttpPost("pathToNode")]
+        [Authorize(Roles = ("Administrator,User"))]
         public async Task<ActionResult<HttpStatusCode>> PostPathAsync(PathToNode newPath)
         {
             try
@@ -116,6 +123,7 @@ namespace MapService.Controllers
 
         // UPDATE
         [HttpPut("pointOfInterest")]
+        [Authorize(Roles = ("Administrator,User"))]
         public async Task<ActionResult<HttpStatusCode>> UpdatePointOfInterestAsync(PointOfInterestNode updatedPointOfInterest)
         {
             try
@@ -133,6 +141,7 @@ namespace MapService.Controllers
         }
 
         [HttpPut("pathToNode")]
+        [Authorize(Roles = ("Administrator,User"))]
         public async Task<ActionResult<HttpStatusCode>> UpdatePathAsync(PathToNode updatedPath)
         {
             try
@@ -152,6 +161,7 @@ namespace MapService.Controllers
 
         // DELETE
         [HttpDelete("pointOfInterest/{id}")]
+        [Authorize(Roles = ("Administrator"))]
         public async Task<ActionResult<HttpStatusCode>> DeletePointOfInterestByIdAsync(string id)
         {
             try
@@ -169,6 +179,7 @@ namespace MapService.Controllers
         }
 
         [HttpDelete("pathToNode/{id}")]
+        [Authorize(Roles = ("Administrator"))]
         public async Task<ActionResult<HttpStatusCode>> DeletePathByIdAsync(string id)
         {
             try
@@ -188,6 +199,7 @@ namespace MapService.Controllers
 
         // Find best path
         [HttpGet("findPath/{startNodeId}/to/{finishNodeId}")]
+        [Authorize(Roles = ("Administrator,User"))]
         public async Task<ActionResult<IEnumerable<PointOfInterestNode>>> FindBestPathAsync(string startNodeId, string finishNodeId)
         {
             try

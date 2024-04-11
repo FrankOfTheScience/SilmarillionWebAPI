@@ -24,7 +24,11 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Characters"
+      "DownstreamPathTemplate": "/api/Characters",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/api/Characters/{characterId}",
@@ -36,7 +40,11 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Characters/{characterId}"
+      "DownstreamPathTemplate": "/api/Characters/{characterId}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/api/Characters/{characterName}",
@@ -48,7 +56,11 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Characters/{characterName}"
+      "DownstreamPathTemplate": "/api/Characters/{characterName}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     //Map Web API
     {
@@ -61,7 +73,11 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Map/pointOfInterest"
+      "DownstreamPathTemplate": "/api/Map/pointOfInterest",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/api/Map/pathToNode",
@@ -73,7 +89,11 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Map/pathToNode"
+      "DownstreamPathTemplate": "/api/Map/pathToNode",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/api/Map/pointOfInterest/{id}",
@@ -85,7 +105,11 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Map/pointOfInterest/{id}"
+      "DownstreamPathTemplate": "/api/Map/pointOfInterest/{id}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/api/Map/pathToNode/{id}",
@@ -97,7 +121,11 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Map/pathToNode/{id}"
+      "DownstreamPathTemplate": "/api/Map/pathToNode/{id}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/api/Map/findPath/{startNodeId}/to/{finishNodeId}",
@@ -109,7 +137,11 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Map/findPath/{startNodeId}/to/{finishNodeId}"
+      "DownstreamPathTemplate": "/api/Map/findPath/{startNodeId}/to/{finishNodeId}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {

@@ -3,6 +3,7 @@ using MapService.Models;
 using MapService.Repository;
 using MongoDB.Driver;
 using System.Text.Json.Serialization;
+using JwtAuthenticationManager;
 
 var builder = WebApplication.CreateBuilder(args);
 var configurations = new ConfigurationBuilder()
@@ -23,11 +24,17 @@ builder.Services.AddSingleton(db.GetCollection<PathToNode>("pathToNodeCollection
 
 builder.Services.AddScoped<IPointOfInterestRepository, PointOfInterestRepository>();
 builder.Services.AddScoped<IPathRepository, PathRepository>();
+builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

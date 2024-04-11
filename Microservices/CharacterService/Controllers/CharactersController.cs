@@ -2,6 +2,7 @@ using CharacterService.ViewModels;
 using CharacterService.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CharacterService.Controllers
 {
@@ -14,10 +15,12 @@ namespace CharacterService.Controllers
             => _characterRepository = characterRepository;
 
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<CharacterViewModel>> GetCharactersAsync()
             => await this._characterRepository.GetCharactersAsync();
 
         [HttpGet("characterId:int")]
+        [Authorize]
         public async Task<ActionResult<CharacterViewModel>> GetCharacterByIdAsync(int characterId)
         {
             var character = await this._characterRepository.GetCharacterByIdAsync(characterId);
@@ -27,6 +30,7 @@ namespace CharacterService.Controllers
         }
 
         [HttpGet("characterName:string")]
+        [Authorize]
         public async Task<ActionResult<CharacterViewModel>> GetCharacterByNameAsync(string characterName)
         {
             if (string.IsNullOrWhiteSpace(characterName))
@@ -38,6 +42,7 @@ namespace CharacterService.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator,User")]
         public async Task<ActionResult<HttpStatusCode>> CreateNewCharacterAsync(CharacterViewModel newCharacter)
         {
             if (newCharacter is null)
@@ -47,6 +52,7 @@ namespace CharacterService.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Administrator,User")]
         public async Task<ActionResult<HttpStatusCode>> UpdateCharacterAsync(CharacterViewModel updatedCharacter)
         {
             if (updatedCharacter is null)
@@ -57,6 +63,7 @@ namespace CharacterService.Controllers
         }
 
         [HttpDelete("characterId:int")]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<HttpStatusCode>> DeleteCharacterByIdAsync(int characterId)
         {
             if (characterId <= 0)
@@ -67,6 +74,7 @@ namespace CharacterService.Controllers
         }
 
         [HttpDelete("characterName:string")]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<HttpStatusCode>> DeleteCharacterByIdAsync(string characterName)
         {
             if (string.IsNullOrEmpty(characterName))
