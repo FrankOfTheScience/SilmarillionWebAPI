@@ -7,7 +7,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["CharacterService/CharacterService.csproj", "CharacterService/"]
-RUN dotnet restore "CharacterService/CharacterService.csproj"
+RUN dotnet restore "./CharacterService/CharacterService.csproj"
 COPY . .
 WORKDIR "/src/CharacterService"
 RUN dotnet build "CharacterService.csproj" -c Release -o /app/build

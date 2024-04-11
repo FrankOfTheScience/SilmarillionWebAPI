@@ -7,7 +7,7 @@ using System.Net;
 namespace MapService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class MapController : ControllerBase
     {
         private readonly IPathRepository _pathToNodeRepository;
@@ -63,7 +63,7 @@ namespace MapService.Controllers
             }
         }
 
-        [HttpGet("path/{id}")]
+        [HttpGet("pathToNode/{id}")]
         public async Task<ActionResult<PathToNode>> GetPathByIdAsync(string id)
         {
             try
@@ -187,7 +187,7 @@ namespace MapService.Controllers
         }
 
         // Find best path
-        [HttpGet("findPath/{startNodId}/to/{finishNodeId}")]
+        [HttpGet("findPath/{startNodeId}/to/{finishNodeId}")]
         public async Task<ActionResult<IEnumerable<PointOfInterestNode>>> FindBestPathAsync(string startNodeId, string finishNodeId)
         {
             try

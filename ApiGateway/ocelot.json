@@ -1,0 +1,105 @@
+{
+  "Routes": [
+    //Character Web API
+    {
+      "UpstreamPathTemplate": "/api/Characters",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "characterservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Characters"
+    },
+    {
+      "UpstreamPathTemplate": "/api/Characters/{characterId}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "characterservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Characters/{characterId}"
+    },
+    {
+      "UpstreamPathTemplate": "/api/Characters/{characterName}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "characterservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Characters/{characterName}"
+    },
+    //Map Web API
+    {
+      "UpstreamPathTemplate": "/api/Map/pointOfInterest",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "mapservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Map/pointOfInterest"
+    },
+    {
+      "UpstreamPathTemplate": "/api/Map/pathToNode",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "mapservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Map/pathToNode"
+    },
+    {
+      "UpstreamPathTemplate": "/api/Map/pointOfInterest/{id}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "mapservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Map/pointOfInterest/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/api/Map/pathToNode/{id}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "mapservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Map/pathToNode/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/api/Map/findPath/{startNodeId}/to/{finishNodeId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "mapservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Map/findPath/{startNodeId}/to/{finishNodeId}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:800"
+  }
+}

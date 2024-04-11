@@ -6,10 +6,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Microservices/MapService/MapService.csproj", "Microservices/MapService/"]
-RUN dotnet restore "Microservices/MapService/MapService.csproj"
+COPY ["MapService/MapService.csproj", "MapService/"]
+RUN dotnet restore "MapService/MapService.csproj"
 COPY . .
-WORKDIR "/src/Microservices/MapService"
+WORKDIR "/src/MapService"
 RUN dotnet build "MapService.csproj" -c Release -o /app/build
 
 FROM build AS publish

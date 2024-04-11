@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharacterService", "Microse
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{839A266C-B195-44BC-AA0A-1B69FB46F8FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapService", "Microservices\MapService\MapService.csproj", "{CBCCFCEB-DEC1-4BB6-88E0-652D88D65721}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapService", "Microservices\MapService\MapService.csproj", "{CBCCFCEB-DEC1-4BB6-88E0-652D88D65721}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{81130E95-9397-4D7F-826E-196429044D1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{C78ACCB9-A25B-4970-A7A4-7562D924B44C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,10 @@ Global
 		{CBCCFCEB-DEC1-4BB6-88E0-652D88D65721}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBCCFCEB-DEC1-4BB6-88E0-652D88D65721}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBCCFCEB-DEC1-4BB6-88E0-652D88D65721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78ACCB9-A25B-4970-A7A4-7562D924B44C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78ACCB9-A25B-4970-A7A4-7562D924B44C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78ACCB9-A25B-4970-A7A4-7562D924B44C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78ACCB9-A25B-4970-A7A4-7562D924B44C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C08689F9-248E-4755-8772-4CAFCE48FA46} = {FC0E0EC9-D943-4A50-A5C6-472C27BB0951}
 		{CBCCFCEB-DEC1-4BB6-88E0-652D88D65721} = {FC0E0EC9-D943-4A50-A5C6-472C27BB0951}
+		{C78ACCB9-A25B-4970-A7A4-7562D924B44C} = {81130E95-9397-4D7F-826E-196429044D1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8893FB58-B08D-4705-B69F-DD5CA2DA02A3}

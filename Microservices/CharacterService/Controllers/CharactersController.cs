@@ -6,7 +6,7 @@ using System.Net;
 namespace CharacterService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CharactersController : ControllerBase
     {
         private readonly ICharacterRepository _characterRepository;

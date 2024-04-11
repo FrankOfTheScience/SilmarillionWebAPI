@@ -4,6 +4,7 @@ networks:
   backend:
 
 services:
+  # Character Db
   characterdb:
     container_name: character-db
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -14,6 +15,8 @@ services:
       - backend
     ports:
       - 8001:1433
+
+  # Character Service
   characterservice:
     container_name: character-api
     image: ${DOCKER_REGISTRY-}characterservice
@@ -22,13 +25,15 @@ services:
       dockerfile: CharacterService/Dockerfile
     networks:
       - backend
-    ports:
-      - 8002:80 
+    # ports:
+    #   - 8002:80 
     environment:
       - DB_HOST=character-db
       - DB_NAME=character
       - DB_USER=sa
       - DB_PASSWORD=DemoPassword@1234
+
+  # Map Db
   mapDb:
     container_name: map-db
     image: mongo
@@ -36,6 +41,8 @@ services:
       - backend
     ports:
       - 18005:27017
+
+  # Map Service
   mapservice:
     container_name: map-api
     image: ${DOCKER_REGISTRY-}mapservice
@@ -44,10 +51,21 @@ services:
       dockerfile: MapService/Dockerfile
     networks:
       - backend
-    ports:
-      - 18006:80
+    # ports:
+    #   - 18006:80
     environment:
       - DB_HOST=map-db
       - DB_NAME=silmarillionMap
     
+  # ApiGateway
+  apigateway:
+    container_name: api-gateway
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    ports:
+      - 8001:80 
+    networks:
+      - backend
 
