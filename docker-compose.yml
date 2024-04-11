@@ -57,6 +57,16 @@ services:
       - DB_HOST=map-db
       - DB_NAME=silmarillionMap
     
+  # Auth Service
+  authenticationwebapi:
+    container_name: authentication-api
+    image: ${DOCKER_REGISTRY-}authenticationwebapi
+    build:
+      context: .
+      dockerfile: AuthenticationWebApi/Dockerfile
+    networks:
+      - backend
+
   # ApiGateway
   apigateway:
     container_name: api-gateway
@@ -68,4 +78,7 @@ services:
       - 8001:80 
     networks:
       - backend
+
+
+  
 

@@ -5,7 +5,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "characterservice": "StartDebugging",
-        "apigateway": "StartDebugging"
+        "apigateway": "StartDebugging",
+        "authenticationwebapi": "StartDebugging"
       }
     }
   }
