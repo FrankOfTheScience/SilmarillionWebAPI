@@ -5,7 +5,6 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["ApiGateway/ApiGateway.csproj", "ApiGateway/"]
 RUN dotnet restore "./ApiGateway/ApiGateway.csproj"
