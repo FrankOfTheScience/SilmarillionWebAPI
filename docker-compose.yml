@@ -22,7 +22,7 @@ services:
     image: ${DOCKER_REGISTRY-}characterservice
     build:
       context: .
-      dockerfile: CharacterService/Dockerfile
+      dockerfile: Microservices/CharacterService/Dockerfile
     networks:
       - backend
     # ports:
@@ -48,7 +48,7 @@ services:
     image: ${DOCKER_REGISTRY-}mapservice
     build:
       context: .
-      dockerfile: MapService/Dockerfile
+      dockerfile: Microservices/MapService/Dockerfile
     networks:
       - backend
     # ports:
