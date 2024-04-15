@@ -9,11 +9,26 @@ Another feature yet to be implemented would be fighting system.
 
 ## Installation
 
-TBD
+As this project as just a demo purpose and it is not intended to be a complete and full product, at least for now, release version is not available.
+You can download and run the repo in debug mode to test it tho, this brief guide is to show how to do it.
+
+### Prerequisite:
+You must have Docker installed on your machine.
+
+### Procedure:
+1. Download the repository
+2.a Open the solution file with VS Code or VS;
+2.a.1 Be sure that Docker Compose is set as default Startup Project, if not choose it
+2.a.2 Launch the project in Debug mode
+2.b Alternatively you can position yourself in the solution folder and then:
+2.b.1 Launch the command `dotnet restore`
+2.b.2 Launch the command `docker-compose up -b`
+2.b.3 Launch the command `docker-compose up -d`
+
 
 ## Usage
 
-Once you have correctly installed the solution and run it, you can test the APIs through tools such as Postman.
+Once you have correctly installed the solution and ran it, you can test the APIs through tools such as Postman.
 Authentication method is through JwtToken, at the moment there are two hard-coded users with roles of Admin and User,
 a future feat is to implement a full authentication storage with a dedicated DB to store accounts data.
 So you are required to send an HTTP request like those, depending which role you want to test:
