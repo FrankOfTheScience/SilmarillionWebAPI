@@ -11,7 +11,7 @@
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/api/Characters"
+      "DownstreamPathTemplate": "/api/Account"
     },
     //Character Web API
     {
