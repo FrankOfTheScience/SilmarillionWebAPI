@@ -62,4 +62,4 @@ curl --location --request {{insert_method}} 'http://localhost:8001/api/{{insert_
 
 ## License
 
-[License](https://github.com/FrankOfTheScience/SilmarillionWebAPI/blob/master/LICENSE)
+[License](https://github.com/FrankOfTheScience/SilmarillionWebAPI/blob/master/LICENSE.md)
