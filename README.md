@@ -17,13 +17,13 @@ You must have Docker installed on your machine.
 
 ### Procedure:
 1. Download the repository
-2.a Open the solution file with VS Code or VS;
-2.a.1 Be sure that Docker Compose is set as default Startup Project, if not choose it
-2.a.2 Launch the project in Debug mode
-2.b Alternatively you can position yourself in the solution folder and then:
-2.b.1 Launch the command `dotnet restore`
-2.b.2 Launch the command `docker-compose up -b`
-2.b.3 Launch the command `docker-compose up -d`
+2.1 Open the solution file with VS Code or VS;
+2.1.1 Be sure that Docker Compose is set as default Startup Project, if not choose it
+2.1.2 Launch the project in Debug mode
+2.2 Alternatively you can position yourself in the solution folder and then:
+2.2.1 Launch the command `dotnet restore`
+2.2.2 Launch the command `docker-compose up -b`
+2.2.3 Launch the command `docker-compose up -d`
 
 
 ## Usage
