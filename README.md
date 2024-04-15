@@ -16,15 +16,16 @@ You can download and run the repo in debug mode to test it tho, this brief guide
 You must have Docker installed on your machine.
 
 ### Procedure:
-1. Download the repository
-2.1 Open the solution file with VS Code or VS;
-2.1.1 Be sure that Docker Compose is set as default Startup Project, if not choose it
-2.1.2 Launch the project in Debug mode
-2.2 Alternatively you can position yourself in the solution folder and then:
-2.2.1 Launch the command `dotnet restore`
-2.2.2 Launch the command `docker-compose up -b`
-2.2.3 Launch the command `docker-compose up -d`
+1. **Download the repository**
+2. **Open the solution file with VS Code or VS:**
+    1. Ensure that Docker Compose is set as the default Startup Project; if not, choose it
+    2. Launch the project in Debug mode
+3. **Alternatively, you can navigate to the solution folder and then:**
+    1. Run the command `dotnet restore`
+    2. Run the command `docker-compose up -b`
+    3. Run the command `docker-compose up -d`
 
+**Note:** Point 2. is an alternative procedure to point 3. , make sure to choose the approach that best suits your needs.
 
 ## Usage
 
